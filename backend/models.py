@@ -1,6 +1,6 @@
 #aqui é onde fica a regra de negócios
 
-from sqlalchemy import Column, Integer, String, Float, Datetime
+from sqlalchemy import Column, Integer, String, Float, DateTime
 from sqlalchemy.sql import func
 from database import Base
 
@@ -14,5 +14,5 @@ class ProductModel(Base):
     price = Column(Float)
     categoria = Column(String)
     email_fornecedor = Column(String, default="americans@contact.com")
-    created_at = Column(Datetime(timezone=True), server_default=func.now())
-    updated_at = Column(Datetime(timezone=True), onupdate=func.now())
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), onupdate=func.now())

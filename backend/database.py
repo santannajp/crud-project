@@ -1,13 +1,14 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+import os
 
 #passo 1 - declarar a url do banco
 
-POSTGRESS_DATABASE_URL = "postgresql://user:password@postgress/mydatabase"
+POSTGRES_DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://user:password@postgres/mydatabase")
 
 #passo 2 - criar engine
-engine = create_engine(POSTGRESS_DATABASE_URL)
+engine = create_engine(POSTGRES_DATABASE_URL)
 
 #passo 3 - criar session
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
